@@ -18,6 +18,3 @@ class Proveedor():
     fecha_Envio= Column(Date)
     descripcion= Column(String(50))
     
-    
-class Logistica():
-    __tablename__=''
