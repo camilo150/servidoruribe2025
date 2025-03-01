@@ -1,8 +1,8 @@
-from sqlalchemy import Column,Integer,String,Date
+from sqlalchemy import Column,String,Date
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
-#LLamar a la base de datos
+#LLamar a la base de datos    1
 
 #Definir las tablas del API
 class Proveedor():
