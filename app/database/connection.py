@@ -8,7 +8,7 @@ from sqlalchemy.engine import Engine
 
 #Datos para la conexión a base de datos
 
-dataBaseName = "logisticauribe"
+dataBaseName = "uribe"
 userName = "root"
 userPassword = ""
 connectionPort = 3306

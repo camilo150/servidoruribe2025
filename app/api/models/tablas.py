@@ -1,14 +1,15 @@
-# formato de base de datos con sqlalchemy
+from sqlalchemy import Column,String,Integer,Date
+from sqlalchemy.ext.declarative import declarative_base #todas las tablas en el mismo archivo, se puede en otros pero para pragmarismo no
 
-from sqlalchemy import Column, Integer, String, Date
-from sqlalchemy.orm import declarative_base  
-
+#llamado a la base para crear tablas
 Base = declarative_base()
 
-class Poveedor:
+#definir modelos d ela base de datos
 
+class Proveedor (Base) :
+    
     __tablename__='proveedores'
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, autoincrement=True) # llave primaria y autoincrementa
     nombres=Column(String(50))
     documento=Column(String(50))
     Direccion=Column(String(50))
@@ -21,8 +22,8 @@ class Poveedor:
     Descripcion=Column(String(50))
 
 
-class Logistica(Base):  
 
+class Logistica:
     __tablename__ = 'logistica'  #
 
     id = Column(Integer, primary_key=True, autoincrement=True)
