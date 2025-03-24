@@ -7,23 +7,21 @@ Base = declarative_base()
 #definir modelos d ela base de datos
 
 class Proveedor (Base) :
+    __tablename__ = 'proveedores'
     
-    __tablename__='proveedores'
     id = Column(Integer, primary_key=True, autoincrement=True) # llave primaria y autoincrementa
     nombres=Column(String(50))
     documento=Column(String(50))
-    Direccion=Column(String(50))
-    Ciudad=Column(String(50))
-    Representante=Column(String(50))
+    direccion=Column(String(50))
+    ciudad=Column(String(50))
+    representante=Column(String(50))
     telefonoContacto=Column(String(50))
-    Correo=Column(String(50))
+    correo=Column(String(50))
     fechaDeEnvio=Column(Date)
     costoDeEnvio=Column(Integer)
-    Descripcion=Column(String(50))
+    descripcion=Column(String(50))
 
-
-
-class Logistica:
+class Logistica (Base):
     __tablename__ = 'logistica'  #
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -31,4 +29,4 @@ class Logistica:
     correoEncargado = Column(String(50))  
     contactoEncargado = Column(String(50))  
     fechaEnvio = Column(Date)
-    Descripcion = Column(String(50))
+    descripcion = Column(String(50))

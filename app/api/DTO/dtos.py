@@ -5,34 +5,34 @@ from datetime import date
 class ProveedorDTO(BaseModel) : #DTO de recepcion
     nombres:str
     documento:str
-    Direccion:str
-    Ciudad:str
-    Representante:str
+    direccion:str
+    ciudad:str
+    representante:str
     telefonoContacto:str
-    Correo:str
+    correo:str
     fechaDeEnvio:date
     costoDeEnvio:int
-    Descripcion:str   #todos esos son los parametros a recibir si no está aqui no se recibe
+    descripcion:str   #todos esos son los parametros a recibir si no está aqui no se recibe
 
-class ProovedorDTOEnvio(BaseModel): #DTO de respuesta
+class ProvedorDTOEnvio(BaseModel): #DTO de respuesta
     id:int
     nombres:str
     documento:str
-    Direccion:str
-    Ciudad:str
-    Representante:str
+    direccion:str
+    ciudad:str
+    representante:str
     telefonoContacto:str
-    Correo:str
+    correo:str
     fechaDeEnvio:date
     costoDeEnvio:int
-    Descripcion:str
+    descripcion:str 
 
 class LogisticaDTO(BaseModel):
     nombreEncargado:str
     correoEncargado:str  
     contactoEncargado:str
     fechaEnvio:str 
-    Descripcion:str
+    descripcion:str
 
 class LogisticaDTOEnvio(BaseModel):
     id:int
@@ -40,4 +40,4 @@ class LogisticaDTOEnvio(BaseModel):
     correoEncargado:str  
     contactoEncargado:str
     fechaEnvio:str 
-    Descripcion:str
+    descripcion:str
