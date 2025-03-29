@@ -31,7 +31,7 @@ class LogisticaDTO(BaseModel):
     nombreEncargado:str
     correoEncargado:str  
     contactoEncargado:str
-    fechaEnvio:str 
+    fechaEnvio:date 
     descripcion:str
 
 class LogisticaDTOEnvio(BaseModel):
@@ -39,5 +39,5 @@ class LogisticaDTOEnvio(BaseModel):
     nombreEncargado:str
     correoEncargado:str  
     contactoEncargado:str
-    fechaEnvio:str 
+    fechaEnvio:date 
     descripcion:str
