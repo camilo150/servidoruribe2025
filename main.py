@@ -1,29 +1,31 @@
-import os
+#afuera de todo, junto con modules
+
 from fastapi import FastAPI
-from starlette.responses import RedirectResponse
-from starlette.middleware.cors import CORSMiddleware
+from app.database.connection import engine
 from app.api.models.tablas import Base
 from app.api.endpoints.endpoints import rutas
-from app.database.connection import engine
 
+from starlette.responses import RedirectResponse
+from starlette.middleware.cors import CORSMiddleware
+
+#Crear las tablas de sql desde python
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+#Variable para administrar la aplicacion
+app=FastAPI()
 
+#Configurar el protocolo CORS   
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["*"]
 )
 
+#Activar EL API
 @app.get("/")
 def main():
     return RedirectResponse(url="/docs")
 
 app.include_router(rutas)
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000)

@@ -1,13 +1,28 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from dotenv import load_dotenv
-import os
+#Conexión con la base de datos
 
-load_dotenv()
+#Importación de las librerías
 
-DATABASE_URL = os.getenv("DATABASE_URL")
-if not DATABASE_URL:
-    raise ValueError("DATABASE_URL no está definida en las variables de entorno")
+from sqlalchemy import create_engine,event #Llamar la librería para la comunicación con la base de datos
+from sqlalchemy.orm import sessionmaker #abrir un canal hacia la base de datos
+from sqlalchemy.engine import Engine
+from sqlalchemy.ext.declarative import declarative_base
+#Datos para la conexión a base de datos
+Base = declarative_base()
 
-engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+dataBaseName = "uribe"
+userName = "root"
+userPassword = ""
+connectionPort = 3306
+server = "localhost"
+
+#Creando la conexión
+
+dataBaseConnection = f"mysql+mysqlconnector://{userName}:{userPassword}@{server}:{connectionPort}/{dataBaseName}"
+
+#Creo el motor de conexión
+
+engine = create_engine(dataBaseConnection)
+
+#Abrir la sesión con la base de datos
+
+SessionLocal = sessionmaker(autocommit = False, autoflush = False, bind = engine)
