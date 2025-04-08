@@ -1,9 +1,10 @@
 from sqlalchemy import Column,String,Integer,Date
  #todas las tablas en el mismo archivo, se puede en otros pero para pragmarismo no
 from app.database.connection import Base
+from sqlalchemy.orm  import declarative_base
 #llamado a la base para crear tablas
 
-
+Base = declarative_base()
 #definir modelos d ela base de datos
 
 class Proveedor (Base) :
