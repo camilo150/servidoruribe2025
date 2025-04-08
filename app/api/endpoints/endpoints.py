@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
 from typing import List
 from fastapi.params import Depends
@@ -19,8 +19,7 @@ def conectarConBD():
         raise error
     
     finally:
-        baseDatos.close()
-    
+        baseDatos.close()  
     
 # Ruta para consultar  ---------------------------------------------------------------------------------------
 
@@ -30,7 +29,6 @@ def buscarProveedores(database:Session=Depends(conectarConBD)):
     try:
         proveedores=database.query(Proveedor).all()
         return [ProvedorDTOEnvio(**proveedor.__dict__) for proveedor in proveedores]
-
 
     except Exception as error:
         database.rollback()

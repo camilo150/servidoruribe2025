@@ -13,6 +13,8 @@ class ProveedorDTO(BaseModel) : #DTO de recepcion
     fechaDeEnvio:date
     costoDeEnvio:int
     descripcion:str   #todos esos son los parametros a recibir si no está aqui no se recibe
+    class Config:
+        orm_mode = True
 
 class ProvedorDTOEnvio(BaseModel): #DTO de respuesta
     id:int
@@ -26,6 +28,8 @@ class ProvedorDTOEnvio(BaseModel): #DTO de respuesta
     fechaDeEnvio:date
     costoDeEnvio:int
     descripcion:str 
+    class Config:
+        orm_mode = True
 
 class LogisticaDTO(BaseModel):
     nombreEncargado:str
@@ -33,6 +37,8 @@ class LogisticaDTO(BaseModel):
     contactoEncargado:str
     fechaEnvio:date 
     descripcion:str
+    class Config:
+        orm_mode = True
 
 class LogisticaDTOEnvio(BaseModel):
     id:int
@@ -41,3 +47,5 @@ class LogisticaDTOEnvio(BaseModel):
     contactoEncargado:str
     fechaEnvio:date 
     descripcion:str
+    class Config:
+        orm_mode = True

@@ -5,8 +5,9 @@
 from sqlalchemy import create_engine,event #Llamar la librería para la comunicación con la base de datos
 from sqlalchemy.orm import sessionmaker #abrir un canal hacia la base de datos
 from sqlalchemy.engine import Engine
-
+from sqlalchemy.ext.declarative import declarative_base
 #Datos para la conexión a base de datos
+Base = declarative_base()
 
 dataBaseName = "uribe"
 userName = "root"

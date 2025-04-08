@@ -1,8 +1,8 @@
 from sqlalchemy import Column,String,Integer,Date
-from sqlalchemy.ext.declarative import declarative_base #todas las tablas en el mismo archivo, se puede en otros pero para pragmarismo no
-
+ #todas las tablas en el mismo archivo, se puede en otros pero para pragmarismo no
+from app.database.connection import Base
 #llamado a la base para crear tablas
-Base = declarative_base()
+
 
 #definir modelos d ela base de datos
 
