@@ -12,8 +12,8 @@ SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 # Crear tablas solo si no estás en producción
-if os.getenv("ENV") != "production":
-    Base.metadata.create_all(bind=engine)
+
+Base.metadata.create_all(bind=engine)
 
 # Inicializar app
 app = FastAPI()
