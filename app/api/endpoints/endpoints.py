@@ -23,7 +23,7 @@ def conectarConBD():
     
 # Ruta para consultar  ---------------------------------------------------------------------------------------
 
-
+#f
 @rutas.get("/consultarProveedores", response_model=List[ProvedorDTOEnvio], summary="servicio para consultar los proveedores")
 def buscarProveedores(database:Session=Depends(conectarConBD)):
     try:
