@@ -1,17 +1,13 @@
-#Conexión con la base de datos
-
-#Importación de las librerías
-
-from sqlalchemy import create_engine,event #Llamar la librería para la comunicación con la base de datos
-from sqlalchemy.orm import sessionmaker #abrir un canal hacia la base de datos
-from sqlalchemy.ext.declarative import declarative_base
-import os
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
+import os
 
-load_dotenv() #carga las variables de mi archivo env que son las variables de entorno
+load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL no está definida en las variables de entorno")
 
 engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(autocommit = False, autoflush = False, bind = engine)
-#f
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
