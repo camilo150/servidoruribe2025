@@ -6,17 +6,7 @@ from app.api.models.tablas import Base
 from app.api.endpoints.endpoints import rutas
 from sqlalchemy import create_engine
 
-# Obtener variables de entorno
-MYSQLHOST = os.getenv("MYSQLHOST")
-MYSQLPORT = os.getenv("MYSQLPORT")
-MYSQLUSER = os.getenv("MYSQLUSER")
-MYSQLPASSWORD = os.getenv("MYSQLPASSWORD")
-MYSQLDATABASE = os.getenv("MYSQLDATABASE")
-
-# Construir URL de conexión
-SQLALCHEMY_DATABASE_URL = (
-    f"mysql+pymysql://{MYSQLUSER}:{MYSQLPASSWORD}@{MYSQLHOST}:{MYSQLPORT}/{MYSQLDATABASE}"
-)
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Crear el engine dinámicamente
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
